@@ -1,0 +1,38 @@
+/* Обязательное позиционирование (центрирование) по центру 
+        например круги на бекграунде PS чтобы было всегда по центру 
+        position: 50%,50% а transform -50%,-50%*/
+    
+=transform($procent,$procentmin)
+    position: absolute
+    left: $procent
+    top: $procent
+    transform: translate($procentmin,$procentmin)
+    
+/*Функция перевода px в rem*/
+
+@function rem($px)
+    @return $px / 16px + 0rem 
+
+/*Миксин Flex */  
+
+=flex($main: null, $cross: null)
+    display: flex
+    justify-content: $main
+    align-items: $cross
+    
+/*Миксин transition мульти-браузерный (для древних браузеров)*/
+
+=trs($option)
+    -webkit-transition: $option
+    -moz-transition: $option
+    -ms-transition: $option
+    transition: $option
+    
+/*\Медиа запросы миксин\*/
+        
+=media($size)
+    @media screen and (min-width: $size)
+      @content
+
+
+    

@@ -1,0 +1,56 @@
+.overlay
+    display: none
+    height: 100vh
+    background: #0f0e0eee
+    position: fixed
+    z-index: 99
+    top: 0
+    left: 0
+    right: 0
+    padding: 0
+.alert
+    position: absolute
+    left: 0
+    right: 0
+    top: 30%
+    z-index: 999
+    margin: 0 auto
+    width: 400px
+    min-height: 200px
+    background: #ffffff
+    border-radius: 10px
+    padding: 20px
+    box-sizing: border-box
+    &__title
+        font-size: 24px
+    &__text
+        font-size: 16px
+        font-weight: italic
+        overflow-wrap: break-word
+    &__wrap
+        &:nth-of-type(1)
+            border-bottom: 1px solid #635b5ba8
+        &:nth-of-type(2)
+            border-bottom: 1px solid #635b5ba8
+        &:nth-of-type(3)
+            display: flex
+            justify-content: flex-end
+            padding-top: 25px
+    &__btn
+        background: #0c6e14
+        color: #ffffff
+        font-weight: bold
+        &:hover
+            background: #268a2e
+.btn
+    padding: 7px 20px
+    border: none
+    border-radius: 5px
+.show
+    display: unset
+
+            
+            
+        
+            
+       

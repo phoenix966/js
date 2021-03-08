@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul class="list">
+        <li class="item"><span>Hello</span> Element 1</li>
+        <li class="item">Element 2</li>
+        <li class="item">Element 3</li>
+        <li class="item">Element 4</li>
+    </ul>
+
+    <script src="js/jquery.js"></script>
+    <script>
+
+        // $('.list').on('click',function(event){             // Дилегирование
+        //    if(event.target.tagName === 'SPAN'){
+        //        $(event.target).css('color','tomato')
+        //    }
+        // });
+
+
+        $('.list').on('click','span',function(){
+            $(this).css('color','tomato')
+        })
+    </script>
+</body>
+</html>

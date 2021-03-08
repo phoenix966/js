@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script src="js/jquery.js"></script>
+    <script>
+
+        // let fruits = ['banana','apple','orange','pear'];
+        // fruits.push('strawberry');
+        // fruits.splice(1,2); // удаляет с 1 индекса до 2
+
+
+        //  let fruits = ['banana','apple','orange','pear'];
+
+        //  fruits.forEach(function(item,i){     // как цикл только на обратных вызовах перебирает массив
+        //     console.log(item)
+        //  });
+         
+        //  let sortedFruits = fruits.map(function(item,i){   // как цикл только на обратных вызовах перебирает массив , и дополнительно возвращает еще один массив!
+        //     return item + (index + 1);
+        //  })
+         
+        //  console.log(fruits,sortedFruits);
+        
+        // let numbers = [1,2,3,4,5,6,7,8,9];           
+
+        // let evenNumbers = numbers.filter(function(item){   // Фильтрует массив на четные
+        //     if(item % 2 === 0) return item;
+        // });
+
+        // console.log(evenNumbers)
+
+        // еще один более компактный вид объявления функции (стрелочные функции) = у нее нет своего this = он будет указывать на Window или на если внутри объекта на свойство объекта
+
+        // let foo = () => {                // если 1 аргумент то круглые скобки пишем, если два или нет аргументов скобки нужны
+        //     return a + b                   
+        // }
+
+        // foo(4,5)
+
+        // //или  еще короче 
+
+        // let foo = (a,b) => a + b;
+        // foo(4,5);
+
+
+        // let User = {
+        //     age: 20,
+        //     increaseYear: function () {
+        //         setInterval(() => {
+        //             this.age
+        //         },1000);
+        //     }
+        // };
+        // User.increaseYear()
+
+        
+        let numbers = [1,2,3,4,5,6,7,8,9];           
+
+        let evenNumbers = numbers.filter(function(item){   // Фильтрует массив на четные
+            if(item % 2 === 0) return item;
+        });
+
+
+        // или более сокращенный
+
+        // let evenNumbers = numbers.filter(item => {
+        //     if(item % 2 === 0) return item;
+        // })
+
+        // // или более сокращенный тернарный 
+
+        // let evenNumbers = numbers.filter(item => item % 2 === 0 && item);
+
+        // console.log(evenNumbers)
+
+        // // или более сокращенный тернарный 
+
+        // let evenNumbers = numbers.filter(item => item % 2);
+
+        // let numbers = [1,2,3,4,5,6,7,8,9]; 
+
+        // let summ = numbers.reduce( (accumulator,item) => {     // Накапливает любые данные очень схоже с циклом (по сути выводит сумму чисел)
+        //     return accumulator + item;
+        // },0);  
+
+        // console.log(sum)
+
+        let fruits = ['banana','apple'];
+        console.log(fruits.include)
+</script>
+</body>
+</html>

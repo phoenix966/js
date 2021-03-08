@@ -1,0 +1,120 @@
+.header
+    padding-top: rem(60px)
+    &__container
+        display: flex
+        justify-content: space-evenly
+        align-items: center
+    &__block
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        padding-top: rem(30px)
+        margin-right: rem(30px)
+        box-sizing: border-box
+        width: rem(450px)
+        min-height: rem(500px)
+        background: #ffff
+        box-shadow: -4px 9px 34px 6px rgba(0,0,0,0.52)  //Временное решение!
+        &:hover
+            background: var(--color-back)
+            box-shadow: 0px 10px 13px -7px #000000, 43px 17px 21px 7px rgba(0,0,0,0)
+            transition: 0.6s
+
+    &__pic
+        width: rem(120px)
+        margin: 0 auto
+        position: relative
+        z-index: 1
+    &__img
+        width: 100%
+        object-fit: cover
+    &__wrap
+        position: relative
+    &__wrap--padding
+        padding: rem(20px) rem(30px)
+    &__circle
+        position: absolute
+        top: -10px
+        right: 60px
+        z-index: 2
+        display: flex
+        justify-content: center
+        align-items: center
+        background: var(--color-accent)
+        color: #ffffff
+        font-family: var(--font-semi)
+        box-sizing: border-box
+        text-align: center
+        font-size: rem(12px)
+        width: rem(40px)
+        height: rem(40px)
+        border-radius: 50%
+    &__title
+        font-family: var(--font-semi)
+        color: var(--color-title)
+        font-size: rem(22px)
+    &__text
+        color: var(--color-light)
+        font-size: 16px
+    &__lowPrice
+        text-decoration: line-through
+        font-size: rem(28px)
+    &__price
+        font-size: rem(26px)
+        color: var(--color-title)
+    &__like
+        width: rem(32px)
+        height: rem(32px)
+    &__buttons
+        display: flex
+        padding: rem(20px) 0
+        display: flex
+    &__btn
+        margin-right: rem(15px)
+        font-size: rem(16px)
+        font-family: var(--font-semi)
+    &__elements
+        display: flex
+        justify-content: flex-start
+    &__javaCircle
+        width: 100px
+        height: 100px
+        border-radius: 50%
+        position: absolute
+        z-index: 0
+        left: 0
+        top: 0
+    &__javaCircle2
+        width: 100px
+        height: 100px
+        border-radius: 50%
+        position: absolute
+        z-index: 0
+        left: 0
+        top: 0
+    &__javaCircle3
+        width: 100px
+        height: 100px
+        border-radius: 50%
+        position: absolute
+        z-index: 0
+        left: 0
+        top: 0
+    &__javaCircle4
+        width: 100px
+        height: 100px
+        border-radius: 50%
+        position: absolute
+        z-index: 0
+        left: 0
+        top: 0
+
+        
+.btn--red
+    background: var(--color-title)
+.element--hider
+    display: none
+    
+
+// .header__circleBox
+//     position: relative      

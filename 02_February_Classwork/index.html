@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/easy-autocomplete.min.css">
+    <link rel="stylesheet" href="css/easy-autocomplete.themes.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+ <div class="overlay">
+        <div class="loader">
+            <div class="loader-inner ball-grid-pulse">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+ </div>
+    
+    <form>
+        <input type="text" class="name">
+        <button class="info">info</button>
+    </form>
+
+    <h3 class="country"></h3>
+    <h3 class="capital"></h3>
+
+    
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.easy-autocomplete.min.js"></script>
+    <script>
+        // $('form').on('submit',function(e){
+        //     e.preventDefault();
+
+        //     let country = $('.name').val();
+        //     let overlay = $('.overlay')
+        //     $.ajax({
+        //         url:`https://restcountries.eu/rest/v2/name/${country}`,
+        //         beforeSend: function(){
+        //           overlay.addClass("show");  
+        //         }
+        //     }).done(function(response){
+        //         let country = response[0];
+        //         $(".country").html(country.name);
+        //         $(".capital").html(country.capital);
+                
+        //     })
+        //     .fail(function(error){
+        //         let message = error.responseJSON.status === 404 ? "Не найдена страна" : "неизвестная ошибка"; // В случае ошибки
+        //         $('body').prepend(`<h1>${message}</h1>`).css('color','red');
+        //     })
+        //     .always(function(){
+        //         overlay.removeClass('show'); // Убирает прелоадер даже в случае неправильного запроса , иначе прелоадер зависнет (Метод что-то в любом случае делает после выполнения запроса)
+        //     })
+            
+        // })
+// Вариант второй более Глобальный
+        // let country = $('.name').val();
+        // let overlay = $('.overlay')
+        // $(document).ajaxStart(function(){ // Глобально Что-то выполняет при любом начале всех сетевых запросов на сервер например добавить прелоадер
+        //     overlay.addClass("show");  
+        // })
+        // $(document).ajaxStop(function(){ // Глобально Что-то выполняет при любом завершении всех сетевых запросов на сервер например убрать прелоадер
+        //     overlay.removeClass('show');
+        // })
+
+
+        // $.ajax({
+        //         url:`https://restcountries.eu/rest/v2/name/${country}`,
+        //         beforeSend: function(){
+        //           overlay.addClass("show");  
+        //         }
+        //     }).done(function(response){
+        //         let country = response[0];
+        //         $(".country").html(country.name);
+        //         $(".capital").html(country.capital);
+                
+        //     })
+
+
+        $.ajax({
+            url:'https://restcountries.eu/rest/v2/all'
+        })
+        .done(function(countries){
+            let options = {
+                data: countries,
+                getValue: 'name',
+                list: {
+                    match: {
+                        enabled: true
+                    }
+                },
+                theme: 'bootstrap'
+            };
+            $('.name').easyAutocomplete(options);
+        })
+    </script>
+</body>
+</html>

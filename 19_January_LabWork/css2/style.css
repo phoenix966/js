@@ -1,0 +1,45 @@
+.number{
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.dots{
+    font-size: 32px;
+}
+.min{
+    font-size: 34px;
+}
+.sec{
+    font-size: 22px;
+    text-decoration: underline;
+}
+.timer{
+    width: 300px;
+    min-height: 200px;
+    background-color: rgb(226, 205, 160);
+    border-radius: 30px;
+    margin: 0 auto;
+}
+.buttons{
+    display: flex;
+    justify-content: space-evenly;
+}
+.btn{
+    background-color: rgb(197, 78, 19);
+    color: white;
+    padding: 4px 8px;
+    border-top: 3px solid red;
+    text-decoration: none;
+}
+.btn:hover{
+    background-color: royalblue;
+}
+.list__title{
+    text-decoration: none;
+
+}
+.close{
+    cursor: pointer;
+    margin-left: 10px;
+}

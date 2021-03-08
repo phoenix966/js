@@ -1,0 +1,8 @@
+.notepad__area{
+    width: 95%;
+    height: 600px;
+    font-size: 32px;
+}
+.notepad__wrap{
+    display: flex;
+}

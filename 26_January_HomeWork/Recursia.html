@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script src="js/jquery.js"></script>
+    <script>
+
+        let cars = {
+        passenger: {
+        sedan: [
+        {name: 'Toyota', price: 300},
+        {name: 'Honda', price: 250}
+        ],
+        variant: [
+        {name: 'Volkswagen', price: 280},
+        {name: 'Mercedes', price: 290}
+        ],
+        coupe: [
+        {name: 'Ferrari', price: 600},
+        {name: 'Ford', price: 200}
+        ]
+        },
+        cargo: [
+        {name: 'Volvo', price: 1000},
+        {name: 'Man', price: 1200}
+        ]
+        };
+
+        let getSum = function(data){
+            let sum = 0;
+            if(Array.isArray(data)){      // Метод проверки на массив 
+                for(let item of data){
+                    sum += item.price
+                }
+            } else{
+                for(let key in data) {
+                    sum += getSum(data[key]);
+                }
+            }
+            return sum
+        };
+    let result = getSum(cars);
+    console.log(result)
+    </script>
+</body>
+</html>

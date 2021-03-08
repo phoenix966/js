@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h1 class="counter">0</h1>
+    <hr>
+    <button id="increment">Увеличить на 1</button>
+    <button id="autoIncrement">Автоувеличение</button>
+    <button id="stopAutoIncrement">Остановить Автоувеличение</button>
+    <button id="changeColor">Изменить цвет</button>
+
+    <script src="js/jquery.js"></script>
+    <script>
+
+        let colors = ['tomato','yellow','blue'];
+        let counter = $('.counter');
+
+        $('#increment').on('click',function(){
+            counter.text(parseInt(counter.text()) + 1)
+        })
+
+    </script>
+</body>
+</html>

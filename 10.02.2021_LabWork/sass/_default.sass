@@ -1,0 +1,37 @@
+body
+    min-width: 320px
+.wrapper
+    width: 100%
+    overflow: hidden
+.container
+    display: flex
+    flex-direction: column
+    max-width: 400px
+    padding: 20px
+    min-height: 200px
+    margin: 0 auto
+
+.list
+    margin: 0 20px
+    list-style-type: none
+    margin-bottom: 20px
+    &__row
+        min-height: 20px
+        width: 100%
+        padding: 2px 2px
+        background: #918b8b
+        &:nth-of-type(even)
+            background: #37ad19
+        &--total
+            padding: 10px 2px
+            background: #ebcb17
+.buttons
+    margin: 0 auto
+.coin
+    background: #e4d726
+    min-width: 40px
+    height: 40px
+    border: none
+    &:hover
+        background: #c9652b
+        

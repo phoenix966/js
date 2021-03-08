@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script src="js/jquery.js"></script>
+
+    <script>
+
+
+
+
+    let List =  {
+        users: [
+        {
+        firstName: "Mike",
+        lastName: "Jefferson"
+        },
+        {
+        firstName: "Sam",
+        lastName: "Warnington"
+        },
+        {
+        firstName: "John",
+        lastName: "Doe"
+        }
+            ],
+        makeList(var1){
+            for(let i = 0; i<var1.length;i++){
+                let elem = $('<ul>');
+                let place = $('body');
+                place.append(elem);
+                let elem2 = $('<li>').text(var1[i].firstName + " " + " " + var1[i].lastName);
+                let place2 = $('ul')
+                place.append(elem2)
+            }
+        }    
+
+    };
+
+    List.makeList(List.users)
+
+    </script>
+</body>
+</html>

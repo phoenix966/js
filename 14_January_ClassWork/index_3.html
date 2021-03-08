@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="twitter__list">
+
+    <li>Mike Wazowski 
+            <a href="#wazowski">#wazowski</a>
+            followers:<strong>50</strong>
+    </li>
+        
+    <li>Sam Burner 
+            <a href="#burner">#burner</a> followers:
+            <strong>25</strong>
+    </li>
+    <li>Vasya Pupkin 
+        <a href="#pupkin">#pupkin</a> followers:
+        <strong>500</strong>
+    </li>
+    <li>Jack London <a href="#london">#london</a> followers:
+        <strong>115</strong>
+    </li>
+        <li>Brad Pitt 
+            <a href="#pitt">#pitt</a> followers:
+        <strong>5</strong></li>
+        
+    </ul>
+
+
+    <script src="js/jquery.js"></script>
+    <script>
+
+        let twitter = $('li:nth-of-type(3)')
+        twitter.remove()
+        let jack = $('li:nth-of-type(3)')
+        let poul = $(`  <li>
+                            Poul Maccartny <a href="#macartney">#macartney</a> followers:
+                            <strong>1500</strong>
+                        </li>`);
+        jack.before(poul)
+        jack.remove()
+        
+                    
+    </script>
+</body>
+</html>

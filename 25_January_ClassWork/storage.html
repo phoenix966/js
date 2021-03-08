@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="">
+        <input type="text" class="name" placeholder="enter your name">
+        <button class="btn">Add name</button>
+    </form>
+
+    <ol class="names"></ol>
+
+    <script src="js/jquery.js"></script>
+    <script>
+        let names = [];
+        $('form').on('submit',function(event){
+            event.preventDefault();
+
+            let value = $('.name').val();
+            let item = $('<li>').text(value);
+            
+            $('.name').append(item);
+            names.push(value);
+            let namesStr = JSON.stringify(names);   // преобразует в текст
+            localStorage.setItem('names',namesStr);
+
+
+            this.reset();
+        });
+
+        getStorageNames = function(){
+            names = JSON.parse(localStorage.getItem('names')) || [];  // преобразует в массив  // .removeItem() - удаляет из хранилища
+            for(let name of names){
+                let item = $('<li>').text(name);
+                $('.names').append(item);
+            }
+        };
+        getStorageNames()
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+.table{
+    width: 90%;
+}
+tr{
+    background-color: bisque;
+    height: 50px;
+}
+.table__info td{   
+    background-color: #817a7a;
+}
+.table__info{
+    height: 20px;
+}
+.form__btn{
+    padding: 2px 8px;
+    background-color: brown;
+    border: none;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}

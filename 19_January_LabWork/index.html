@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="wrapper">
+          
+        </div>
+        <div class="form-wrap">
+            <form action="index.php" class="form">
+                <input type="text" class="add-task" placeholder="Укажите текст">
+                <button class="btn-add">Add Element</button>
+            </form>
+        </div>
+    </div>
+    <button class="pushMe">Push ME</button>
+
+    <script src="js/jquery.js"></script>
+    <script>
+
+        let addTask = function(arr1,arr2,text,icon,callback){
+            let place = $(arr1) 
+            let newElem = $(arr2).addClass('task-item').text(text)
+            let iconClose = $(icon).text('Close')
+            callback(place,newElem,iconClose)
+        }
+
+        
+        $('.form').on('submit', function(event){
+            event.preventDefault();
+            let formData = $('.add-task').val()
+            addTask('.wrapper','<div>',formData,'<div>',function(place,elem,icon){
+                place.append(elem)
+                $(icon).addClass('close-it')
+                let place2 = $(elem)
+                place2.append(icon)
+
+                $('.wrapper').on('click','.close-it', function(){
+                    this.closest('.task-item').remove()
+            })
+
+
+            // this.reset()            // очищает строку формы
+            $('.add-task').val("")    // или тоже очищает строку
+        })
+        
+    })
+    
+   
+    </script>
+</body>
+</html>

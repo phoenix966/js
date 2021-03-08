@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>notepad</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="notepad">
+        <div class="notepad__panel"></div>
+        <div class="notepad__box">
+            <form class="notepad__form" action="GET">
+                <textarea name="area" class="notepad__area" ></textarea>
+                <div class="notepad__wrap">
+                    <button class="notepad__btn btn--save">Save</button>
+                    <button class="notepad__btn btn--clear">Clear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script>
+
+        let notepad = [];
+        
+        $('form').on('submit',function(event){
+            event.preventDefault();
+        })
+
+        $('.btn--save').on('click',function(){
+            let dataForm = $('.notepad__area').val();
+            let font = $('.notepad__area').css('fontSize');
+            notepad.push(dataForm);
+            let str = JSON.stringify(notepad);
+            localStorage.setItem('note',str);
+            localStorage.setItem('properties',font);
+        })
+
+        $('.btn--clear').on('click',function(){
+            $('.notepad__area').val('');
+            localStorage.removeItem('note');
+        })
+
+        let getTextFromLocalStorage = function(){
+            let array = JSON.parse(localStorage.getItem('note'));
+            let item = localStorage.getItem('properties'); 
+            for(let key in array){
+                $('.notepad__area').val(array[key]);
+            };
+                $('.notepad__area').css({'fontSize': item});
+            
+            
+        };  
+        
+        getTextFromLocalStorage();
+    </script>
+</body>
+</html>

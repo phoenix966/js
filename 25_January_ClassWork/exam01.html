@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script src="js/jquery.js"></script>
+    <script>
+
+        function power(base, exp){
+            if(exp === 0){
+                return 1
+            } else {
+                return base + power(base, exp - 1); // РЕкурсивная функция если не написать условие будет ошибка FullStack
+            }
+          }
+
+         let result = power(2,3);
+          console.log(result)
+
+          let data = {
+              'users':{
+                  'mike':{},
+                  'John':{
+                      'children':{
+                          'Valera':{}
+                      }
+                  }
+              },
+              'admin':{
+                  'root':{
+                      'Sam':{},
+                      'Nick':{}
+                  },
+                  'managers':{
+                      'Jane':{},
+                      'Will':{}
+                  }
+              }
+          };
+
+    
+          let getList = function(data){
+            let list ='';
+            for(let key in data){
+                list += '<li>' + key;
+
+                let hasSubItems = Object.values(key).length > 0;
+                if(hasSubItems){
+                    list += getList(data[key]);
+                }
+                list += '</li>'
+            }
+            return '<ul>' + list + '</ul>';
+          };
+          document
+            .querySelector('body')
+            .innerHTML = getList(data);
+
+          getList(data)
+    </script>
+</body>
+</html>

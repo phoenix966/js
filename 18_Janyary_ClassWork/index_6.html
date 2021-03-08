@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .wrap{
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+        };
+        .inner{
+            width: 200px;
+            height: 50px;
+            background-color: red;
+
+        };
+    </style>
+    <div class="wrap">
+        <div class="inner">
+            <button class="btn">Click me</button>
+        </div>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script>
+
+        // document.querySelector('.btn')
+        // .addEventListener('click',function(){          //Событие клик  -- асинхронный код
+        //     console.log('click button')
+        // });  
+
+
+        // Jquery
+        
+        $('.inner').on('click',function(){                  
+            console.log('Click on inner');               
+        })
+
+        $('.wrap').on('click',function(){                  
+            console.log('Click on wrap');               
+        })
+
+        $('.btn').on('click',function(event){ 
+            event.stopPropagation();      // необходим для остановки всплытия  других вложенных элементов , позволяет избежать использование дополнительных кликов на близких объектах         
+            console.log('Click on button');               
+        })
+
+        
+    </script>
+
+</body>
+</html>

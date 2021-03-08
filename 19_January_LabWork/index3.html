@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css2/style.css">
+</head>
+<body>
+    <div class="timer">
+        <div class="number">
+            <div class="min"></div>
+            <div class="dots">:</div>
+            <div class="sec"></div>
+        </div>
+        <div class="buttons">
+            <a href="#" class="start-btn btn">Start</a>
+            <a href="#" class="stop-btn btn">Stop</a>
+            <a href="#" class="reset-btn btn">Reset</a>
+            <a href="#" class="save-btn btn">Circle</a>
+        </div>
+        <ul class="list">
+            
+        </ul>
+    </div>
+    
+
+    <script src="js/jquery.js"></script>
+    <script>
+     
+        let min = $('.min').text('00');
+        let sec = $('.sec').text('00');
+        let interval;
+        let num = 0;
+        let num2 = 0;
+        let array = [];
+        let addNumber = function(){
+            if(interval)return;
+            interval = setInterval(function(){
+                num++;
+                let string = num.toString();
+                if(string.length > 1){
+                     sec.text(string);
+                } else{
+                     sec.text('0' + string);
+                }
+               
+                let max = 60;
+                if(num > max){
+                    num2++;
+                    let string2 = num2.toString();
+                     num = 0;
+
+                    if(string2.length > 1){
+                        min.text(string2);
+                    }else{
+                        min.text('0' + string2);
+                    }
+                   
+                }
+            },100)
+        }
+        
+        $('.start-btn').on('click', addNumber);
+        $('.stop-btn').on('click',function(){
+            clearInterval(interval);
+            interval = 0;
+        })
+        $('.reset-btn').on('click',function(){
+            clearInterval(interval);
+            num = 0;
+            num2 = 0;
+            sec.text("00");
+            min.text("00");
+            interval = 0;
+            $('.list li').remove();
+            localStorage.removeItem('loop');  // Удаляет из Локального Хранилища выбранный Элемент
+        })
+        $('.save-btn').on('click',function(){
+            clearInterval(interval);
+            interval = 0;
+            let time = 'Время круга '  + num2 + ' минут ' + num + " секунд ";
+            let close = $('<span class="close">').text('X');
+            let item = $('<li>').text(time);
+            item.append(close);
+            $('.list').append(item); 
+            interval = 0; 
+            array.push(item.html());                  //.html() - Как text()  только Берет вместе с html элементами
+            let str = JSON.stringify(array);          // Парсит в строку
+            localStorage.setItem('loop',str);
+        })
+        
+       function getItemFromStorage(){
+            array = JSON.parse(localStorage.getItem('loop') )|| [];    // Парсит назад в Массив из Локального хранилища
+            for(let key in array){
+                let li = $('<li>').html(array[key]);
+                $('.list').append(li);
+                
+            }
+       }
+       
+       $('.list').on('click','.close',function(){
+                let index = $(this).index();         // Получает индекс
+                this.closest('li').remove();         // .closest берет ближайший элемент к этому .close
+                array = JSON.parse(localStorage.getItem('loop') )|| [];
+                array.splice(index, 1);              // берет первым параметром индекс от которого удаляет ячейки до второго параметра индекса
+                localStorage.setItem('loop',JSON.stringify(array))
+                                                                                    
+        });
+
+
+       getItemFromStorage();
+       
+// Важные шаги работы с Локальным хранилищем!!!
+        //Чтобы удалить данные выборочно из локального хранилища нужно:
+            //1.Вытаскиваем данные из хранилища
+            //2. Парсим в массив
+            //3.Берем нужный индекс в массиве и изменяем содержимое
+            //4.Парсим обратно в текст
+            //5.И загружаем обратно в локальное хранилище
+
+    </script>
+</body>
+</html>

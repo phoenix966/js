@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <form class="form" action="GET">
+        <input class="form__input" type="text">
+        <button class="form__btn">Search</button>
+    </form>
+    <table class="table">
+        <tr class="table__info">
+            <td>Code</td>
+            <td>Flag</td>
+            <td>Name</td>
+            <td>Capital</td>
+            <td>Population</td>
+        </tr>
+        <tr class="table__row">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <script src="js/jquery.js"></script>
+    <script>
+         let printData = function(response){
+            $('.flag-img').remove()
+            let flag = $(`<img class="flag-img" src="${response[0].flag}" alt="flag" width="100px">`);
+            $('#flag').append(flag);
+            $('#name').text(response[0].name)
+            $('#capital').text(response[0].capital)
+            $('#region').text(response[0].region)
+            $('#subregion').text(response[0].subregion)
+
+        }
+
+        $.ajax({
+                    method:"GET",
+                    url:`https://restcountries.eu/rest/v2/name/${userRequest.val()}`
+                }).done(printData).fail(function(error){
+                    console.log(error)
+                })
+    </script>
+</body>
+</html>

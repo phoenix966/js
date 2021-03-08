@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol class="todo-list"></ol>
+  
+
+
+    <script src="js/jquery.js"></script>
+    <script>
+
+        // let tasks = [
+        //         'Сходить в магазин',
+        //         'Приготовить обед',
+        //         'Поесть',
+        //         'Отдохнуть',
+        //         'Работать'
+        // ];
+
+        // let todo = document.querySelector('.todo-list');
+
+        // for(let key of tasks){
+        //     let newLi = document.createElement('li')
+        //     newLi.textContent = key
+        //     todo.append(newLi)
+        // }
+
+        let todo = $('.todo-list');
+        for(;;){
+            let user = prompt('Введите новую задачу')
+            let newElem = $('<li class="list">')
+            todo.append(newElem)
+
+            if(user === null){
+                alert('вход отменен');
+                break;
+            } else{
+                newElem.text(user)
+            }
+        }
+
+
+
+    </script>
+
+</body>
+</html>

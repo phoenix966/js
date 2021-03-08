@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" class="color">
+    
+    <script src="js/jquery.js"></script>
+
+    <script>
+
+        // let currentColor = localStorage.getItem('bgcolor'); // получаем данные
+        
+        // if(!currentColor){
+        //     localStorage.setItem('bgcolor','tomato'); // записываем данные в хранилище первое key второе value
+        // }
+
+        // console.log(currentColor)
+        //////////////////
+
+
+
+        let init  = function(){
+            let bgcolor = localStorage.getItem('bgcolor');
+            if(bgcolor){
+                setBodyBgColor(bgcolor);
+                $('.color').val(bgcolor);
+            }
+        };
+        let setBodyBgColor = function (bgcolor){
+            $('body').css('background-color',bgcolor);
+        };
+        init();
+
+        $('.color').on('change',function(){
+            let bgcolor = $(this).val();
+            setBodyBgColor(bgcolor);
+            localStorage.setItem('bgcolor',bgcolor)
+        });
+    </script>
+</body>
+</html>

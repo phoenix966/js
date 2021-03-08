@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script src="js/jquery.js"></script>
+    <script>
+
+        // setTimeout(function (){
+        //     alert('Я заработаю через 2 сек')
+        // },2000); //Что должно быть выполнено и через какое время (Это Асинхронный код)
+
+        let counter = 0;
+        let interval = setInterval(function(){
+            counter++
+            console.log("Счетчик равен" + counter)   // Будет выполнять каждые 1 сек возвращает какое-то значение 
+            if(counter === 3){
+                  clearInterval(interval);  // Просто останавливает интервал
+            }
+          
+        },1000);
+
+        console.log('Синхронный код')
+    </script>
+</body>
+</html>

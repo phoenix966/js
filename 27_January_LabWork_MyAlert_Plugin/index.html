@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- <div class="overlay">
+        <div class="alert">
+            <div class="alert__wrap">
+                <h3 class="alert__title">Alert</h3>
+            </div>
+            <div class="alert__wrap">
+                <p class="alert__text"></p>
+            </div>
+            <div class="alert__wrap">
+                <button class="alert__btn btn">Ok</button>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="box"><a class="link" href="#" class="href">Click on me</a></div>
+
+    <script src="js/jquery.js"></script>
+
+    <script>
+
+        let newAlert = function (title, text, callback) {
+
+            let modal = `
+            <div class="overlay">
+                <div class="alert">
+                    <div class="alert__wrap">
+                        <h3 class="alert__title">${title}</h3>
+                    </div>
+                    <div class="alert__wrap">
+                        <p class="alert__text">${text}</p>
+                    </div>
+                    <div class="alert__wrap">
+                        <button class="alert__btn btn">Ok</button>
+                    </div>
+                </div>
+            </div>
+            `;
+            $('body').append(modal);
+            $('.alert__btn').on('click', function () {
+                $('.overlay').removeClass('show')
+                if (callback) {
+                    callback(title)
+                }
+            })
+        }
+
+        $('.link').on('click', function (event) {
+            event.preventDefault();
+            $('.overlay').addClass('show')
+        })
+
+        newAlert('Alert',"Hello world gog ogo  go to home Hello world gog ogo  go to home Hello world gog ogo  go to home Hello world gog ogo  go to home")
+
+    
+    </script>
+</body>
+
+</html>

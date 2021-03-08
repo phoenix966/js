@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="wrapper"></div>
+ 
+    <nav class="nav-timer">
+        <a href="#" class="start">Start</a>
+        <a href="#" class="stop">Stop</a>
+    </nav>
+
+    <script src="js/jquery.js"></script>
+    <script>
+    $(function(){   // DomReady
+        let getRandom = function(min,max){
+        let num = Math.floor(Math.random() * max + min);
+        return num;
+    }
+
+    let addDivInWrapper = function(){
+        let place = $('.wrapper')
+        let newElem = $('<div>').addClass('element')
+        newElem.text(getRandom(1,20))
+        place.append(newElem)
+    }
+
+    let interval = 0;
+
+    $('.start').on('click',function(event){
+        event.preventDefault();
+        interval = setInterval(function(){
+            addDivInWrapper()
+        },1000)
+    })
+
+    $('.stop').on('click',function(event){
+        event.preventDefault();
+        clearInterval(interval)
+        interval = null
+
+        })
+        
+
+    })  
+    
+    
+   
+
+    </script>
+    
+</body>
+</html>

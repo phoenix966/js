@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script src="js/jquery.js"></script>
+    <script>
+
+
+        let colors = ['tomato','red','white']
+        function getRandomInt(min,mix){
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        colors[getRandomInt(0,colors.length -1)]
+
+        let wrap = $('.book__wrap-img');
+        let size = 100;
+
+        for(let item of wrap) {
+            let color = colors[getRandomInt(0, colors.length - 1)];
+            let circle = $('.div').addClass('circle')
+            let posTop = getRandomInt(size, $(item).height()) - size + 'px';
+            let posX = getRandomInt(0,1) === 0 ? 'left' : 'right';
+            circle.css({
+                width: size + 'px',
+                height: size + 'px',
+                backgroundColor: color,
+                top: posTop,
+                [posX]:(-size / 2) + 'px'
+            });
+
+            $(item).append(circle)
+        }
+    </script>
+</body>
+</html>

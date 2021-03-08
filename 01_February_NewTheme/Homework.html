@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form class="search">
+        <input type="text" class="search__input">
+        <button class="search__btn">Искать данные страны</button>
+    </form>
+        <div class="country">
+        <div class="country__flag"><span id="flag"></span></div>
+        <h1 class="country__name">Название страны: <span
+        id="name"></span></h1>
+        <h2 class="country__capital">Столица <span
+        id="capital"></span></h2>
+        <h3 class="country__region">Регион: <span id="region"></span></h3>
+        <h4 class="country__subregion">Подрегион: <span
+        id="subregion"></span></h4>
+    </div>
+
+    
+    <script src="js/jquery.js"></script>
+    <script>
+        let printData = function(response){
+            $('.flag-img').remove()
+            let flag = $(`<img class="flag-img" src="${response[0].flag}" alt="flag" width="100px">`);
+            $('#flag').append(flag);
+            $('#name').text(response[0].name)
+            $('#capital').text(response[0].capital)
+            $('#region').text(response[0].region)
+            $('#subregion').text(response[0].subregion)
+
+        }
+
+        $('.search').on('submit',function(event){
+            event.preventDefault();
+            let userRequest = $('input');
+            $.ajax({
+                    method:"GET",
+                    url:`https://restcountries.eu/rest/v2/name/${userRequest.val()}`
+                }).done(printData).fail(function(error){
+                    console.log(error)
+                })
+        })
+
+    </script>
+</body>
+</html>
